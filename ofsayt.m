@@ -7,7 +7,8 @@ j=0;
 toplam=0;
 vale=0;
 en=size(crop);
-while i<100 
+dj=0;
+while dj==0
     
     
     if red==en(1)
@@ -22,6 +23,15 @@ while i<100
     i=crop(red,en(2)-vale,1);
     j=crop(red,en(2)-vale,2);
     k=crop(red,en(2)-vale,3);
+    
+    if i>100 && j<100 && k<100
+    
+    dj=1;
+        
+    end
+    
+    
+    
     if (j>100 && k>100) || (j>100 && i>100) || (i>100 && k>100)
        
         i=40;
@@ -33,9 +43,9 @@ while i<100
    
 end
 disp(toplam);
-toplam=0;
+
 j=0;
-vale=0;
+
 red=1;
 k=0;
 total=0;
@@ -88,5 +98,6 @@ else
       disp('ofsayt yoktur');
     
 end
+
 
 
