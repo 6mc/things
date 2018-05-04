@@ -1,5 +1,5 @@
-p=imread('C:/matlab/offside.jpg');
-crop=imcrop(p,[0 100 924 404]);
+p=imread('C:/matlab/offside1.jpg');
+crop=imcrop(p,[0 100 820 404]);
 red=0;
 green=0;
 i=0;
@@ -90,6 +90,7 @@ disp(total);
 
 disp(top);
 
+imshow(crop);
 
 if top==0 && total>toplam
         disp('ofsayt vardýr');
