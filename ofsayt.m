@@ -21,7 +21,8 @@ while i<100
     
     i=crop(red,en(2)-vale,1);
     j=crop(red,en(2)-vale,2);
-    if i>100 && j>100
+    k=crop(red,en(2)-vale,3);
+    if (j>100 && k>100) || (j>100 && i>100) || (i>100 && k>100)
        
         i=40;
     end
@@ -40,6 +41,7 @@ k=0;
 total=0;
 blue=0;
 dale=0;
+top=0;
 while k<100 
     
     
@@ -56,17 +58,35 @@ while k<100
     i=crop(blue,en(2)-dale,1);
     j=crop(blue,en(2)-dale,2);
       k=crop(blue,en(2)-dale,3);
-    if i>100 && j>100 
+  if(i>200 && j>150 && k<50)
+    
+        top=total;
+    end
+      
+      if (j>100 && i>100)
        
         k=40;
     end
-    
     
     
      
    
 end
 
+
+
  
 disp(total);
+
+disp(top);
+
+
+if top==0 && total>toplam
+        disp('ofsayt vardýr');
+        
+else
+      disp('ofsayt yoktur');
+    
+end
+
 
