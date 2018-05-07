@@ -89,15 +89,15 @@ muw=2;
 arw=0;
 pict= p;
 while arw ==0;
-pict(kuw,1600-dale+muw,1)=0;
-    pict(kuw,1600-dale+muw,2)=0;
-    pict(kuw,1600-dale+muw,3)=0;
+pict(kuw,1100-dale+muw,1)=0;
+    pict(kuw,1100-dale+muw,2)=0;
+    pict(kuw,1100-dale+muw,3)=0;
     kuw=kuw+1;
-     muw=muw+2;
+     muw=round(kuw*1.73);
     if kuw==mu(1)
     arw=1;
     end 
-     if muw==dale
+     if muw==dale+500
     arw=1;
     end 
 end

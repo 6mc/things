@@ -1,4 +1,4 @@
-p=imread('C:/matlab/offside.jpg');
+p=imread('C:/matlab/ofsayt.jpg');
 mu=size(p);
 crop=imcrop(p,[0 100 820 404]);
 red=0;
@@ -110,4 +110,4 @@ else
     J = insertText(pict, [100 315 ], 'ofsayt yoktur');
 end
 
-imshow(J);
+imshow(crop);
