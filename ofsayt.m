@@ -1,4 +1,5 @@
-p=imread('C:/matlab/offside1.jpg');
+p=imread('C:/matlab/offside.jpg');
+mu=size(p);
 crop=imcrop(p,[0 100 820 404]);
 red=0;
 green=0;
@@ -82,23 +83,31 @@ while k<100
      
    
 end
-
-
-
+kuw=1;
+arw=0;
+pict= p;
+while arw ==0;
+pict(kuw,820-dale,1)=0;
+    pict(kuw,820-dale,2)=0;
+    pict(kuw,820-dale,3)=0;
+    kuw=kuw+1;
+    
+    if kuw==mu(1)
+    arw=1;
+    end 
+end
  
 disp(total);
 
 disp(top);
 
-imshow(crop);
 
 if top==0 && total>toplam
-        disp('ofsayt vardýr');
-        
+        disp('ofsayt vardir');
+        J = insertText(pict, [100 315 ], 'ofsayt vardir');
 else
       disp('ofsayt yoktur');
-    
+    J = insertText(pict, [100 315 ], 'ofsayt yoktur');
 end
 
-
-
+imshow(J);
