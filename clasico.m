@@ -1,5 +1,15 @@
 p=imread('C:/matlab/clasico0.jpg');
 mu=size(p);
+prompt = 'Atak Yonu Ne taraf?';
+x = input(prompt);
+prompt = 'Hucum eden taraf?';
+y = input(prompt);
+
+if x==1
+  p=  flip(p,2);
+end
+
+
 %crop=imcrop(p,[0 300 1300 750]);
 crop = imrotate(p,12);
 mad=size(crop);
@@ -15,6 +25,10 @@ i=0;
 dj=0;
 toplam=0;
 while dj<=2
+    if dale==mad(2)-5
+        dj=4;
+    end
+    
     if blue==mad(1)
        toplam=toplam+blue;
         blue=1;
@@ -88,16 +102,24 @@ end
  disp(toplam);
 disp(total);
 disp(v);
-imshow(d);
+
 %disp(top);
+
+temp=0;
+if y ==1
+temp = total;
+total = toplam;
+toplam = temp;
+end
 
 
 if top==0 && total>toplam
         disp('ofsayt vardir');
-        J = insertText(pict, [100 315 ], 'ofsayt vardir','FontSize',55);
+        J = insertText(p, [100 315 ], 'ofsayt vardir','FontSize',55);
 else
       disp('ofsayt yoktur');
-    J = insertText(pict, [100 315 ], 'ofsayt yoktur','FontSize',55);
+    J = insertText(p, [100 315 ], 'ofsayt yoktur','FontSize',55);
    
 end
-
+figure,imshow(p);
+figure,imshow(d);
