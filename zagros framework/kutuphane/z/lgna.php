@@ -1,0 +1,13 @@
+<?Php
+if($c!==NULL){
+	if($b!='alan'){
+		$ini['lgna'][$b]=$c;
+	}
+	else{
+		$ini['lgna'][$b]=Array($c,$d);
+	}
+}
+else{
+	$snc=$ini['lgna'][$b];
+}
+?>

@@ -1,0 +1,138 @@
+/*
+   z veritabaný iþlemleri kullanýmýnda uyulmasý gereken noktalar
+   -> Veritabaný tablosundaki alanlarýn SQL koduna denk gelenleri büyük harfle olamaz (Ör: limit isimli alan olabilir fakat LIMIT isimli alan z tarafýndan görülmez, sýnýrlandýrmayý ayarlayan mysql fonksiyonu olarak varsayýlýr)
+*/
+
+z('con',Array('localhost','root','root','zertel'));
+z('t','mesaj');
+z('e','mesaj','Deneme');
+z('e',Array('ad'=>'orhan','soyad'=>'tutum'));
+z('o',1,'ad'); // Orhan
+z('o',2); // [ad]=orhan, [soyad]=tutum
+z('o',"WHERE 1",'ad'); // [0]=orhan, [1]=mehmet
+z('o',"WHERE 1"); // [0][ad]=orhan, [0][soyad]=tutum, [1][ad]=mehmet
+z('o',array('ad'=>'Orhan')); // [0][ad]=orhan, [0][soyad]=tutum, [1][ad]=mehmet
+
+$_Sd=array(
+	'id'=>array('>',25),
+	'ad'=>'Orhan',
+	'ORDER'=>'BY id DESC',
+	'LIMIT'=>$adet
+);
+z('o',$_Sd);
+
+z('g',1,'ad','Osman'); // 1
+z('g',2,Array('ad'=>'Mehmet','soyad'=>'ÖÐMEN')); // 1
+z('g',"WHERE 1",Array('ad'=>'Orhan','soyad'=>'TUTUM')); // 1
+z('s',1); // 1
+z('s',"WHERE 1"); // 1
+z('c');
+z('c',"WHERE 1"); // 1
+z("SELECT * FROM zertel.msj_mesaj"); // mysql_query
+
+z('o','son','mesaj');
+z('g','son','mesaj','Yeni mesajým');
+z('s','son','mesaj');
+
+z('ini','display_errors',1);
+z('ini','default_time','Europe/Istanbul');
+z('ini','date','Y-m-d H:i:s');
+z('ini','t_low',true);
+
+// Dosya Ekle, Oku, Listele, Sil,
+z('de','a.txt','Deneme'); // 1
+z('de','a.txt','Deneme','a'); // 1
+z('de','yeniklasor/a.txt','Klasör Oluþturarak Deneme'); // 1
+z('do','a.txt'); // Deneme
+z('dl'); // [0]=a.txt [1]=b.txt
+z('dl','klasorad'); // [0]=a.txt [1]=b.txt [2]=altklasor
+z('dl','klasorad','',1); // [0]=a.txt [1]=b.txt [2][ad]=altklasor [2][icerik][0]=alt1.txt
+z('dl','klasorad','d'); // [0]=a.txt [1]=b.txt
+z('dl','klasorad','k'); // [0]=altklasor
+z('dl','klasorad','k',1); // [0]=altklasor [0][ad]=altaltklasör [0][icerik]=altaltaltklasör
+z('dl','klasorad','k',3); // [0]=altklasor [0][ad]=altaltklasör
+z('ds','a.txt'); // 1
+
+// Klasör Ekle,Sil
+z('ke','yeniklasor'); // 1
+z('ke','varolan/yeniklasor/yenialt'); // 1
+z('ks','varolan'); // 1
+z('ks','varolan',1); // 1
+
+
+z('post','kullaniciAdi'); // zertel
+z(7,'kullaniciAdi'); // zertel
+z('get','kullaniciAdi'); // zertel
+z(8,'kullaniciAdi'); // zertel
+z('value','kullaniciAdi'); // zertel
+z(9,'kullaniciAdi'); // zertel
+z('file','resim1'); // [type]='image/jpeg' [name]='a.jpg' ... / [0][type]='image/jpeg' [0][name]='a.jpg' ... 
+z(10,'resim1');
+z(10,'resim1','name'); // image/jpeg
+
+z('session','oturum',true);
+z(11,'oturum',1);
+z('session','oturum');
+z(11,'oturum');
+z('cookie','cerez','Ali');
+z(12,'cerez',15);
+z('cookie','cerez');
+z(12,'cerez');
+
+//13
+z('lgn') // 1
+z('lgn',Array('zertel','123123',true)); // 1
+z('lgn','ID'); // #
+z('lgn','kullanici'); // zertel
+z('lgn','lgnbh'); // 1
+//14
+z('lgna','tablo','uye');
+z('lgna','alan',Array('kullanici','sifre','md5e kodla','extra alan'),Array('eposta','sifre','md5'));
+z('lgna','kaydet',Array('ID','kullanici','eposta','ad','soyad'));
+z('lgna','hatirla',true);
+z('lgna','guncelle',Array('tarihG'=>z('datetime')));
+z('lgna','hataliGiris',array('hataliGiris',$ayr['hataliGirisAdet'],'bloke',1));
+
+z('ra','kalite',80);
+z('ra','metin','www.z.com',Array('x'=>'50%','y'=>'99%','renk'=>'#fff','font'=>'arial.ttf','punto'=>'12','belirginlik'=>'50'));
+z('ra','bicim',1);// 0:geniþlet / 1:doldur / 2:sýðdýr / 3:ortala 
+z('ra','efekt',1);
+z('rb','a.jpg'); // 1
+z('rb','a.jpg','100x60'); // 1
+
+z('ze','a.zip','/images'); // 1
+z('za','a.zip','/');
+
+z('sayi','ondalikSayi','virgüldenSonraBasamakAdedi','basamaklaraAyýrA'); // 234.544,99
+z(36,12334.446,2,true); // 12.334,45
+z(36,'29,99'); // 29.99
+z(37,$_Urun) // Array( [0]=> array('ID'=>5) ) ---> Array( [5]=> array('ID'=>5) ) 
+z(38,$_Urun) // "(ID='1' OR ID='7' OR ID='8' OR ID='3')"
+
+39 getyonet
+40 birlestir
+41 git
+z('git',URL);
+z('git','geri');
+z('git','yenile');
+42 maskele
+43 stunlar
+44 form
+45 yukle 
+
+46 ayar
+47 icerik
+48 dizigrupla
+$_XAC_=z(48,z(1,"WHERE ".z(38,$_X),'',$tbl.'ac'),'dokumastok_ID');
+
+z('ayar',$ayar); // db yi okur eþitler
+z('ayar',$ayar,true); // db yi okur, yeni sabitleri db ye ekler, db ye dokunmaz
+z('ayar',$ayar,true,true); // db yi temizler, db yi okur
+
+
+z('ini','ekle_etiket_temizle',true);
+z('ini','ekle_izinli_etiket','<br>,<b>,<strong>,<u>,<i>,<span>,<h1>,<h2>,<h3>,<h4>,<h5>,<h6>,<p>,<div>,<main>,<section>,<article>,<ul>,<ol>,<li>');
+
+
+// Özelleþtir
+z('z',array('o','e','g','s','c','t','post','get','value','file','session','cookie','lgn','lgna','ini','date','datetime','host','sw','do','de','ds','dl','ke','ks','rb','ra','ze','za','tarih','tarihsaat','url','durum','sifrele','tarihsaniye','sayi'));

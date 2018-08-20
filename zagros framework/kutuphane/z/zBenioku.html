@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>z Beni Oku</title>
+	<style type="text/css">
+		body{ background-color: #eee; }
+		.blok{ background-color: white; margin: 1em; border-radius: 1em; padding: 1em; font-family: verdana; }
+		pre{ background-color: #ffe;  }
+	</style>
+</head>
+<body>
+	<div class="blok">
+		<h2>içindekiler</h2>
+		<ul>
+			<li>
+				<a href="#zhakkinda">z Hakkında</a>
+			</li>
+			<li>
+				<a href="#veritabanina_baglan">Veritabanına Bağlan</a>
+			</li>
+			<li>
+				<a href="#veritabanindan_veri_oku">Veritabanından Veri Oku</a>
+			</li>
+			<li>
+				<a href="#veritabanina_veri_ekle">Veritabanına Veri Ekle</a>
+			</li>
+			<li>
+				<a href="#veritabanindaki_veriyi_guncelle">Veritabanındaki Veriyi Güncelle</a>
+			</li>
+			<li>
+				<a href="#veritabanindan_veri_sil">Veritabanından Veri Sil</a>
+			</li>
+		</ul>
+	</div>
+
+	<p>...</p>
+	<p>...</p>
+	<p>...</p>
+	<p>...</p>
+	<p>...</p>
+	<p>...</p>
+
+
+
+
+	<div class="blok" id="zhakkinda">
+		z: veritabanı işlemleri, dosya işlemleri, kullanıcı oturum işlemleri ve get, post gibi request verilerini 
+	</div>
+
+
+
+
+	<div class="blok" id="veritabanina_baglan">
+		<h2>MySQL Veritabanına Bağlan</h2>
+		<h3>Kullanım Örneği 1</h3>
+<pre>
+&lt;?php
+	// MySQL sunucusuna bağlan ve 'kendi_veritabanim' isimli veritabanını seç
+	z('con',array(
+		'localhost',   // MySQL Sunucu adı
+		'root',		   // Sunucu Kullanıcı Adı
+		'root',		   // Sunucu Şifresi
+		'kendi_veritabanim'   // Kullanılacak Veritabanının Adı
+	));
+?&gt;
+</pre>
+		<h3>Kullanım Örneği 2</h3>
+<pre>
+&lt;?php
+	// MySQL sunucusuna bağlan, 'kendi_veritabanim' isimli veritabanını seç ve tablo ön ekini 'z_' olarak ayarla
+	z('con',array(
+		'localhost',   // MySQL Sunucu adı
+		'root',		   // Sunucu Kullanıcı Adı
+		'root',		   // Sunucu Şifresi
+		'kendi_veritabanim',   // Kullanılacak Veritabanının Adı
+		'z_'		   // Tablo ön eki
+	));
+?&gt;
+</pre>
+		<h3>Kullanım Örneği 3</h3>
+<pre>
+&lt;?php
+	// MySQL sunucusuna bağlan, 'kendi_veritabanim' isimli veritabanını seç, tablo ön ekini 'z_' olarak ayarla ve varsayılan tabloyu 'uyeler' olarak seç
+	z('con',array(
+		'localhost',   // MySQL Sunucu adı
+		'root',		   // Sunucu Kullanıcı Adı
+		'root',		   // Sunucu Şifresi
+		'kendi_veritabanim',   // Kullanılacak Veritabanının Adı
+		'z_',		   // Tablo Ön Eki
+		'uyeler'	   // Varsayılan Tablo Adı
+	));
+	// Not: Varsayılan tablo seçeneği, tek tablo ile geliştirilmiş basit yapılarda kullanım kolaylığı sağlamaktadır. Örneğin: Herkesin bir sayfada mesajlaşabildiği genel chat sayfası gibi. Onun haricinde pek fazla avantajı yoktur. Tanımlanması veya tanımlanmaması durumunda, devamında geliştirilecek uygulamaya olumsuz herhangi bir etkisi olmayacaktır.
+?&gt;
+</pre>
+		<h3>Kullanım Örneği 4</h3>
+<pre>
+&lt;?php
+	// Bulunduğun konuma bakarak MySQL sunucusuna bağlan
+	if(z('host')=='localhost'||strpos(z('host'),'192.168.')!==false){ // Geliştirici bilgisayarında ise;
+		z('con',array('localhost','root','root','kendi_veritabanim','z_'));
+	}
+	else{ // İnternet sunucusunda ise;
+		z('con',array('localhost','sunucu_kullanici_adim','sunucu_sifrem','sunucudaki_veritabanim','z_'));
+	}
+	// Not: En baştaki (host adı olan) 'localhost' sunucu seçimleri, Normalde MySQL sunucusu için her iki ortamda da aynıdır. "z('host')" kullanımından dönen değer ise geliştirici bilgisayarlarınızda farklı sunucuda farklı olarak dönecektir. Bu sayede doğru kullanıcı adı ve şifre ile MySQL sunucusuna bağlantı yapılabilecektir.
+	// "z('host')" kullanımı hakkında ise <a href="#yardimci_ozellikler">Yardımcı Özellikler</a>
+?&gt;
+</pre>
+	</div>
+	<!-- veritabanina_baglan END -->
+
+
+
+
+	<div class="blok" id="veritabanindan_veri_oku">
+		<h2>Veritabanından Veri Okuma</h2>
+		<h3>Kullanım Örneği 1</h3>
+<pre>
+&lt;?php
+	// uyeler tablosundan id'si '1' olan girdinin 'ad' alanını oku ve doğrudan ekrana bas
+	_z('oku',1,'ad','uyeler'); 
+	// not: _ ile başlayan kullanım geriye herhangi bir değer döndürmez, doğrudan ekrana basar.
+?&gt;
+</pre>
+		<h3>Kullanım Örneği 2</h3>
+<pre>
+&lt;?php
+	// uyeler tablosundan id'si '1' olan girdinin 'ad' alanını oku ve değişkene ata
+	$uyeAdi=z('oku',1,'ad','uyeler'); // return string
+	// Ekrana bas
+	echo $uyeAdi;
+?&gt;
+</pre>
+		<h3>Kullanım Örneği 3</h3>
+<pre>
+&lt;?php
+	// uyeler tablosundan id'si '1' olan girdinin 'ad' ve 'soyad' alanlarını oku ve değişkene ata
+	$uye=z('oku',1,'ad,soyad','uyeler'); // return array
+	// Ekrana bas
+	_z($uye,'ad');
+	_z($uye,'soyad');
+?&gt;
+</pre>
+	</div>
+</body>
+</html>

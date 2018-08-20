@@ -1,0 +1,186 @@
+/* Gölge Efekti */
+.glw{
+	-webkit-box-shadow: 0 0 9px 4px rgba(0,0,0,0.4); 
+	-moz-box-shadow: 0 0 9px 4px rgba(0,0,0,0.4);
+	box-shadow: 0 0 9px 4px rgba(0,0,0,0.4);
+}
+.glw-min{
+	-webkit-box-shadow: 0 0 9px 4px rgba(0,0,0,0.2); 
+	-moz-box-shadow: 0 0 9px 4px rgba(0,0,0,0.2);
+	box-shadow: 0 0 9px 4px rgba(0,0,0,0.2);
+}
+/* Sağ Alta Gölge Efekti */
+.glw-rb{
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
+}
+/* Sol Alta Gölge Efekti */
+.glw-lb{
+	-webkit-box-shadow: -10px 10px 5px 0px rgba(0,0,0,0.4);
+	-moz-box-shadow: -10px 10px 5px 0px rgba(0,0,0,0.4);
+	box-shadow: -10px 10px 5px 0px rgba(0,0,0,0.4);
+}
+
+/* Margin 1em */
+.mrg{
+	margin: 1em;
+}
+.mrg-tb{
+	margin: 1em 0;
+}
+/* Margin 1em Group */
+.mrg-grp{
+}
+/* Margin 1em Group Kontrolü */
+.mrg-grp .mrg{padding: 1em 1em 0 1em;}.mrg-grp .mrg:last-child{padding: 0 1em 1em 1em;}
+
+/* Padding 1em */
+.pdn{
+	padding: 1em;
+}
+/* Padding 1em Group */
+.pdn-grp{
+}
+/* Padding 1em Group Kontrolü */
+.pdn-grp .pdn{padding: 1em 1em 0 1em;}.pdn-grp .pdn:last-child{padding:  1em 0 1em 1em;}
+.pdn-min tr td{
+	padding: 0.3em;
+}
+.pdn-min tr th{
+	padding: 0.6em;
+}
+
+/* Noktasal Border 1px */
+.brd-dtd{
+	border-top:1px dotted #000;
+}
+
+/* Metin Kutusu */
+.mtn{
+	display: inline-block;
+	font-family: Times new roman;
+	font-size: 1em;
+	padding: 0 0 2px 0;
+}
+/* Paragraf Kutusu */
+.prg{
+	text-indent: 2em;
+	font-family: Times new roman;
+	font-size: 1em;
+}
+
+/* Buton */
+.btn{
+	display: inline-block;
+	padding: 0.4em;
+	background-color:#eee;
+	border: 1px solid #bbb;
+	text-decoration:none;
+	font-weight:bold;
+	color:#333;
+}
+.btn:hover{background-color:white;color:#555;}
+.btn:active{background-color:grey;color:white;}
+
+/* Form İnputları */
+.inp,.lbl{
+	font-family: verdana;
+	font-size: 10pt;
+	margin: 0;
+	background-color: white;
+	border:1px solid #777;
+	outline: none;
+	display: inline-block;
+	padding: 1em;
+	vertical-align: top;
+}
+.inp{
+	width: 500px;
+}
+.inp-min{ width:16em; padding: 0.3em; }
+.inp:focus,.lbl:focus,.inp:hover,.lbl:hover{background-color:#ffe;}
+input[type="text"].inp,input[type="password"].inp,input[type="email"].inp{
+
+}
+input[type="file"].inp{
+}
+input[type="file"].inp-min{
+	padding: 0.12em;
+}
+textarea.inp{
+	min-height: 8em;
+}
+textarea.inp-min{
+	min-height: 0.1em;
+	padding: 0.24em;
+}
+input[type="submit"].inp{
+	width: 529px;
+}
+input[type="submit"].inp-min{
+	width: 16.75em;
+}
+select.inp{
+	width: 529px;
+	padding: 0.94em;
+}
+select.inp-min{
+	padding: 0.24em;
+}
+
+/* Resim Kutuları */
+.rsm{
+	display:inline-block;
+	background-size:cover;
+	background-position: center;
+	overflow: hidden;
+	font-size: 8pt;
+	line-height: 8pt;
+}
+.rsm-1{
+	width:100px;
+	height:60px;
+}
+.rsm-2{
+	width:140px;
+	height:100px;
+}
+.rsm-3{
+	width:200px;
+	height:140px;
+}
+td .rsm{
+	display:block;
+}
+
+/* Efektler */
+.hvr:hover{
+	opacity: 0.8;
+}
+.crs-p{
+	cursor:pointer;
+}
+
+/* Şablonlar */
+.onay,.uyari,.hata{ 
+	padding: 1em;
+	
+	font-size: 12pt;
+	font-family: verdana;
+	text-indent: 1em;
+	display: block;
+
+	-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
+	box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
+}
+.onay{
+	background-color:#efe;
+}
+.uyari{
+	background-color:#eef;
+}
+.hata{
+	background-color:#fee;
+}

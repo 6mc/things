@@ -1,0 +1,41 @@
+<?Php
+if(!empty($b)){
+	switch($b){
+		case'default_time':
+			if(!empty($c)){
+				$ini[$b]=$c;
+			}
+			else{
+				$snc=$ini[$b];
+			}
+			date_default_timezone_set($ini[$b]);
+		break;
+		case'host':
+			if(empty($ini[$b])){
+				$ini[$b]=$_SERVER['HTTP_HOST'];
+			}
+			$snc=$ini[$b];
+		break;
+		case'date':case'datetime':case'tarih':case'tarihsaat':
+		case't_low':
+			if($c!==NULL){
+				$ini[$b]=$c;
+			}
+			else{
+				$snc=$ini[$b];
+			}
+		break;
+		default:
+			if($c!==NULL){
+				ini_set($b,$c);
+				$ini[$b]=$c;
+			}
+			else{
+				$snc=$ini[$b];
+			}
+	}
+}
+if(empty($snc)){
+	$snc=$ini;
+}
+?>

@@ -1,0 +1,21 @@
+<?Php
+if(empty($c)){
+	$c='r';
+}
+if(is_file($b)){
+	if(is_readable($b)){
+		$dsy=fopen($b,$c);
+		$fz=filesize($b);
+		if($fz){
+			$snc=fread($dsy,$fz);
+		}
+		fclose($dsy);
+	}
+	else{
+		$snc=false;
+	}
+}
+else{
+	$snc=false;
+}
+?>

@@ -1,0 +1,9 @@
+
+	$_Y=z(1,NULL,NULL,'personel');if(!empty($_Y))foreach($_Y as $y)$_P[$y['ID']]=$y;
+	$_Y=z(1,NULL,NULL,'nesne');if(!empty($_Y))foreach($_Y as $y)$_Nesne[$y['ID']]=$y;
+	$_Y=z(1,NULL,NULL,'firma');if(!empty($_Y))foreach($_Y as $y)$_Firma[$y['ID']]=$y;
+	$_Y=z(1,NULL,NULL,'ihracatci');if(!empty($_Y))foreach($_Y as $y)$_Ihracatci[$y['ID']]=$y;
+	$_Y=z(1,NULL,NULL,'banka');if(!empty($_Y))foreach($_Y as $y)$_Banka[$y['ID']]=$y;
+	$_Y=z(1,NULL,NULL,'komisyoncu');if(!empty($_Y))foreach($_Y as $y)$_Komisyoncu[$y['ID']]=$y;
+	$_Y=z(1,NULL,NULL,'komisyon');if(!empty($_Y))foreach($_Y as $y)$_Komisyon[$y['ID']]=$y;
+	$_Y=z(1,NULL,NULL,'imalatci');if(!empty($_Y))foreach($_Y as $y)$_Imalatci[$y['ID']]=$y;

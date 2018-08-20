@@ -1,0 +1,50 @@
+<?Php
+if(empty($b)){
+	$b='.';
+}
+$_X=Array();
+if(is_dir($b)){
+	if(is_readable($b)){
+		if($d>1){
+			$d--;
+			if($d==1){
+				$d=0;
+			}
+		}
+		$kls=opendir($b);
+		while(($dsy=readdir($kls))!==false){
+			if($dsy!='.'&&$dsy!='..'){
+				if(!empty($d)){
+					if(is_dir($b.'/'.$dsy)){
+						$_X2=z($a,$b.'/'.$dsy,$c,$d);
+						if($c!='d'||($c=='d'&&!empty($_X2))){
+							$_X[]=Array('ad'=>$dsy,'icerik'=>$_X2);
+						}
+						unset($dsy);
+					}
+				}
+				if(!empty($dsy)){
+					switch($c){
+						case'd':
+							if(is_file($b.'/'.$dsy)){
+								$_X[]=$dsy;
+							}
+						break;
+						case'k':
+							if(is_dir($b.'/'.$dsy)){
+								$_X[]=$dsy;
+							}
+						break;
+						default:
+							$_X[]=$dsy;
+					}
+				}
+			}
+		}
+		closedir($kls);
+	}
+	if(!empty($_X)){
+		$snc=$_X;
+	}
+}
+?>

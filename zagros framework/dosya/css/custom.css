@@ -1,0 +1,73 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #bbf;
+	font-family: arial;
+}
+
+table{
+	border:0;
+	border-top:1px solid #aaa;
+	border-left:1px solid #aaa;
+	margin: 0;
+	padding: 0;
+}
+table td,table th{
+	border:0;
+	border-right:1px solid #aaa;
+	border-bottom:1px solid #aaa;
+	padding: 2px;
+}
+table th{ background-color:#fff; }
+
+ul.nav{
+	background-color: #222;
+	text-align: center;
+	border-top: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.6);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.6);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.6);
+}
+ul.nav,ul.nav li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+ul.nav li{
+	display: inline-block;
+}
+ul.nav li a{
+	text-decoration:none;
+	display: block;
+	color: #bbb;
+	padding: 1em;
+	font-weight:none;
+}
+ul.nav li a:hover{
+	background-color: #eee;
+	color: #333;
+}
+ul.nav li.active a{
+	background-color: #eee;
+	color: #333;
+}
+
+.main{
+	padding: 1em;
+}
+.main .container{
+	background-color: white;
+	padding: 2em;
+}
+
+.sayfa-baslik{
+	color: white;
+	font-weight:bold;
+	padding: 4px 1em;
+	font-family: consolas;
+
+	-webkit-text-shadow: 10px 10px 0px rgba(0,0,0,0.6);
+	-moz-text-shadow: 0px 0px 0px rgba(0,0,0,0.6);
+	text-shadow: 4px 4px 3px rgba(0,0,0,0.6);
+}
