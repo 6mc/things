@@ -6,21 +6,44 @@ import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 
 # get local machine name
-host = '127.0.0.1'                           
+host = '127.0.0.2'                          
 
 port = 9993
 
 # connection to hostname on the port.
 s.connect((host, port))                               
 
-# Receive no more than 1024 bytes
-msg = s.recv(1024)                                     
-typ = 'imap' 
-s.send(typ.encode('ascii'))
+adres = 'smtp.mehmetcan.com'
 
-mails = s.recv(2048)
-print(mails.decode('ascii'))
+s.send(adres.encode('ascii'))
+
+ip = s.recv(1024)
+
+print(ip.decode('ascii'))
 
 s.close()
+ns = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+more = ip.decode("ascii").split(":")
+
+nhost = more[0]
+
+nport= int(more[1])
+
+ns.connect((nhost, nport))
+# Receive no more than 1024 bytes
+msg = ns.recv(1024)                                     
+typ = 'imap' 
+#s.send(typ)
+
+
+ns.send(typ.encode('ascii'))
+
+
+mails = ns.recv(2048)
+
+print(mails.decode("ascii"))
+
+ns.close()
 
 print (msg.decode('ascii'))

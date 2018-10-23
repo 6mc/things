@@ -22,10 +22,13 @@ ip = s.recv(1024)
 print(ip.decode('ascii'))
 
 s.close()
-ns = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
-nhost = '127.0.0.3'
+ns = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-nport= 9992
+more = ip.decode("ascii").split(":")
+
+nhost = more[0]
+
+nport= int(more[1])
 
 ns.connect((nhost, nport))
 # Receive no more than 1024 bytes
