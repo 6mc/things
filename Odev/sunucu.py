@@ -6,9 +6,9 @@ serversocket = socket.socket(
 	        socket.AF_INET, socket.SOCK_STREAM) 
 
 # get local machine name
-host = '127.0.0.1'                           
+host = '127.0.0.3'                           
 
-port = 9993                                           
+port = 9992                                           
 
 # bind to the port
 serversocket.bind((host, port))                                  
@@ -25,12 +25,12 @@ while True:
     msg='Thank you for connecting'+ "\r\n"
     clientsocket.send(msg.encode('ascii'))
     istm = clientsocket.recv(2048)
-    if istm=='pop3':
+    if istm.decode('ascii')=='pop3':
        f=open("sunucu_mail.txt", "r")
        mails =f.read()
        clientsocket.send(mails.encode('ascii'))
        f.close() 
-       f=open("sunucu_mail.txt","w+")
+       f=open("sunucu_mail.txt","w")
        f.write(" ")
        f.close()
     else:

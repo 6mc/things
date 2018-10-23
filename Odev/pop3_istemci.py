@@ -6,23 +6,38 @@ import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 
 # get local machine name
-host = '127.0.0.1'                          
+host = '127.0.0.2'                          
 
 port = 9993
 
 # connection to hostname on the port.
 s.connect((host, port))                               
 
+adres = 'smtp.mehmetcan.com'
+
+s.send(adres.encode('ascii'))
+
+ip = s.recv(1024)
+
+print(ip.decode('ascii'))
+
+s.close()
+ns = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+nhost = '127.0.0.3'
+
+nport= 9992
+
+ns.connect((nhost, nport))
 # Receive no more than 1024 bytes
-msg = s.recv(1024)                                     
+msg = ns.recv(1024)                                     
 typ = 'pop3' 
 #s.send(typ)
 
 
-s.send(typ.encode('ascii'))
+ns.send(typ.encode('ascii'))
 
 
-mails = s.recv(2048)
+mails = ns.recv(2048)
 
 f=open("istemci_mail.txt", "a+")
 f.write(mails.decode('ascii')+ "\r\n")
@@ -32,6 +47,6 @@ f=open("istemci_mail.txt", "r")
 local =f.read()
 print(local)
 
-s.close()
+ns.close()
 
 print (msg.decode('ascii'))
