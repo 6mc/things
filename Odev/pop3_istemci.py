@@ -13,7 +13,7 @@ port = 9993
 # connection to hostname on the port.
 s.connect((host, port))                               
 
-adres = 'smtp.mehmetcan.com'
+adres = "smtp.mehmetcan.com"
 
 s.send(adres.encode('ascii'))
 
