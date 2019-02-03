@@ -1,4 +1,4 @@
-# 3 formas diferentes de crear un sitio web 
+# 12 formas diferentes de crear un sitio web 
 ## HTML
 - Hazlo tu mismo
 - Temas Gratis
