@@ -11,7 +11,8 @@
 ## Website Builder
 - Website builder Publico
 - Website builder Privado
-
+- Alternativas (Jekyll, Next)
+- Website Builder desde sitio hosting cpanel
 ## Otros
 - Empresas de software
 - Dreamswork, Ms publisher.
