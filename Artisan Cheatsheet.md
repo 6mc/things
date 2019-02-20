@@ -12,8 +12,3 @@ Migration dosyası ile birlikte olusturur.
 
 
 
-
-http://win04.ni.net.tr:8880
-
-username : ssunucu2 
-password : maDr2y107F
