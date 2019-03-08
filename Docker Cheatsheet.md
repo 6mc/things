@@ -2,7 +2,7 @@
 
 ## Laravel(laradock)
 
-- o run Laradock(after cloning from github)
+- To run Laradock(after cloning from github)
 
 docker-compose up -d nginx mysql phpmyadmin redis workspace
 
