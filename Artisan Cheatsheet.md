@@ -1,6 +1,6 @@
-#Artisan CheatSheet
+# Artisan CheatSheet
 
-##Make Commands
+## Make Commands
 
 - php artisan make:controller UserController --resource --model=photo
 
