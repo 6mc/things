@@ -12,5 +12,3 @@
    </head>
    <body>
       Aleyke
-"<script src='hacki/js/index.js'></script>"  
-"</html>" 

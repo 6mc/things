@@ -1,0 +1,47 @@
+"<html>"       
+"<html>"       
+"<link rel='stylesheet' href='hacki/css/style.css'>"       rem appending css files to beginning of the html files
+"<link rel='stylesheet' href='hacki/css/style.css'>"       rem appending css files to beginning of the html files
+"<link rel='stylesheet' href='hacki/css/style.css'>"       rem appending css files to beginning of the html files
+"<link rel='stylesheet' href='.\hac/css/style.css'>"       rem appending css files to beginning of the html files
+<html>
+   <head>
+      Selam
+   </head>
+   <body>
+      Aleyke
+   </body>
+</html>"<script src=".\hac/js/index.js"></script>"  rem appending js files to end of file
+"<script src="hacki/js/index.js"></script>"  rem appending js files to end of file
+"<script src="hacki/js/index.js"></script>"  rem appending js files to end of file
+"<link rel='stylesheet' href='hacki/css/style.css'>"       rem appending css files to beginning of the html files
+"<link rel='stylesheet' href='hacki/css/style.css'>"       rem appending css files to beginning of the html files
+"<link rel='stylesheet' href='.\hac/css/style.css'>"       rem appending css files to beginning of the html files
+<html>
+   <head>
+      Selam
+   </head>
+   <body>
+      Aleyke
+   </body>
+</html>"<script src=".\hac/js/index.js"></script>"  rem appending js files to end of file
+"<script src="hacki/js/index.js"></script>"  rem appending js files to end of file
+"<link rel='stylesheet' href='hacki/css/style.css'>"       rem appending css files to beginning of the html files
+"<link rel='stylesheet' href='.\hac/css/style.css'>"       rem appending css files to beginning of the html files
+<html>
+   <head>
+      Selam
+   </head>
+   <body>
+      Aleyke
+   </body>
+</html>"<script src=".\hac/js/index.js"></script>"  rem appending js files to end of file
+"<link rel='stylesheet' href='.\hac/css/style.css'>"       rem appending css files to beginning of the html files
+<html>
+   <head>
+      Selam
+   </head>
+   <body>
+      Aleyke
+   </body>
+</html>
