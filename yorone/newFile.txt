@@ -1,12 +1,5 @@
-"<html>"       
-"<link rel='stylesheet' href='hacki/css/style.css'>"     
-"<link rel='stylesheet' href='hacki/css/style.css'>"     
-"<link rel='stylesheet' href='hacki/css/style.css'>"     
-"<link rel='stylesheet' href='hacki/css/style.css'>"     
-"<link rel='stylesheet' href='hacki/css/style.css'>"     
-"<link rel='stylesheet' href='hacki/css/style.css'>"     
-"<link rel='stylesheet' href='hacki/css/style.css'>"     
-"<link rel='stylesheet' href='hacki/css/style.css'>"     
+<html>       
+<link rel='stylesheet' href='hacki/css/style.css'>     
    <head>
       Selam
    </head>

@@ -25,21 +25,21 @@ FBZip.exe -p -E %filename% ./%ilk%
     del index.html
     ren index_copy.html index.html
 
-    echo "<link rel='stylesheet' href='%ilk%/css/style.css'>" > newFile.txt    
+    echo ^<link rel='stylesheet' href='%ilk%/css/style.css'^> > newFile.txt    
       rem appending css files to beginning of the html files
 type index.html >> newFile.txt
 type newFile.txt > index.html
 
-    echo "<html>" > newFile.txt      
+    echo ^<html^> > newFile.txt      
     rem appending <html> files to beginning of the html files
 type index.html >> newFile.txt
 type newFile.txt > index.html
 
-echo "<script src='%ilk%/js/index.js'></script>" >> index.html 
+echo ^<script src='%ilk%/js/index.js'^>^</script^> >> index.html 
 rem appending js files to end of file
 
 
-echo "</html>" >> index.html
+echo ^</html^> >> index.html
  rem appending /</html> to end of file
 
 
