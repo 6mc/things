@@ -13,7 +13,13 @@ ssh mehmet@94.102.3.246 -p 1337
 # Network Configuration Ubuntu
 -  root@ubuntu:/etc/network# nano interfaces => configure network as 
 
-`# The loopback network interface
+```
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
 auto lo
 iface lo inet loopback
 
@@ -25,7 +31,8 @@ netmask 255.255.255.0
 network 192.168.0.0
 broadcst 192.168.0.255
 gateway 192.168.0.1
-dns-nameservers 192.168.0.3`
+dns-nameservers 192.168.0.3
+```
 
 # General OS manipulation
 - cat = peek into a text file
