@@ -34,6 +34,16 @@ gateway 192.168.0.1
 dns-nameservers 192.168.0.3
 ```
 
+# Ubuntu Firewall
+- sudo netstat -ntlp | grep LISTEN => see Open Ports
+- [Check Open Ports Firewall](https://www.yougetsignal.com/tools/open-ports/) 
+## UFW Configuration
+- sudo ufw allow 80/tcp
+- sudo ufw deny 3306
+- sudo ufw allow from 192.168.0.1 to any port 22
+- sudo ufw enable
+
+
 # General OS manipulation
 - cat = peek into a text file
 - find = seach a file in ubuntu
@@ -43,3 +53,7 @@ dns-nameservers 192.168.0.3
 - top/htop = server perfomance monitoring 
 - ps = show running processes
 - kill = helps killing a process
+
+# Log Listing
+- root@tekstil:/var/log/nginx# cat access.log
+- ngxtop 
