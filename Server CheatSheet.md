@@ -8,7 +8,7 @@ ssh mehmet@94.102.3.246 -p 1337
 - Network Share Center Properties ipv4
 - root@ubuntu:/etc/network# cat interfaces => helps you to see default gateway
 - DNS servers are generally provided by your ISP e.g. Turk Telekom DNS
-- and you can see your ip address and SubNet Mask with `ifconfig command
+- and you can see your ip address and SubNet Mask with `ifconfig` command
 
 # Network Configuration Ubuntu
 -  root@ubuntu:/etc/network# nano interfaces => configure network as 
