@@ -57,3 +57,4 @@ dns-nameservers 192.168.0.3
 # Log Listing
 - root@tekstil:/var/log/nginx# cat access.log
 - ngxtop 
+- sudo ngxtop remote_addr -l  /var/log/nginx/site1/access.log
