@@ -53,6 +53,7 @@ dns-nameservers 192.168.0.3
 - top/htop = server perfomance monitoring 
 - ps = show running processes
 - kill = helps killing a process
+- sed = replaces a word in a file 
 
 # Log Listing
 - root@tekstil:/var/log/nginx# cat access.log
