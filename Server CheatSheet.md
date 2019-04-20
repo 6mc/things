@@ -33,6 +33,7 @@ broadcst 192.168.0.255
 gateway 192.168.0.1
 dns-nameservers 192.168.0.3
 ```
+- and then reboot the server with `reboot` command
 
 # Ubuntu Firewall
 - sudo netstat -ntlp | grep LISTEN => see Open Ports
