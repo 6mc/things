@@ -20,7 +20,7 @@ link_list = [a['href'] for a in soup.find_all('a', href=True)]
 
 # app = requests.get(link_list[70])
 
-for x in xrange(70,167):
+for x in xrange(70,90):
 	print(x)
 	details = BeautifulSoup(requests.get(link_list[x]).content, 'html.parser')
 	title = details.find('title').get_text()[:-16] 
@@ -28,13 +28,16 @@ for x in xrange(70,167):
 	sheet1.write(x-69, 0, title)
 	sheet1.write(x-69, 1, link_list[x])
 	properties= details.find_all('dd');
-	try:
-		print( properties[8].get_text().strip())
+	try:		
 		sheet1.write(x-69, 2, soup.find_all('figcaption')[0].get_text().strip())
 	except Exception as e:
 		print("The App has 8 variables")
 	for y in xrange(0,7):
-		sheet1.write(x-69, y+3, properties[y].get_text().strip()) 
+#		sheet1.write(x-69, y+3, properties[y].get_text().strip())
+		try:
+			sheet1.write(x-69, y+3, properties[y].get_text().strip())
+		except Exception as e:
+			print("No internet")
 	try:
 		print( properties[8].get_text().strip())
 		sheet1.write(x-69, 11, properties[8].get_text().strip())
@@ -84,4 +87,4 @@ for x in xrange(70,167):
 # for x in xrange(0,8):
 # 	sheet1.write(1, x+3, properties[x].get_text().strip()) 
 # 	pass
-wb.save('Apps.xls') 
+wb.save('apple.xls') 
