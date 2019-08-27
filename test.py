@@ -29,7 +29,7 @@ for x in xrange(70,90):
 	sheet1.write(x-69, 1, link_list[x])
 	properties= details.find_all('dd');
 	try:		
-		sheet1.write(x-69, 2, soup.find_all('figcaption')[0].get_text().strip())
+		sheet1.write(x-69, 2, details.find_all('figcaption')[0].get_text().strip())
 	except Exception as e:
 		print("The App has 8 variables")
 	for y in xrange(0,7):
@@ -87,4 +87,4 @@ for x in xrange(70,90):
 # for x in xrange(0,8):
 # 	sheet1.write(1, x+3, properties[x].get_text().strip()) 
 # 	pass
-wb.save('apple.xls') 
+wb.save('app.xls') 
