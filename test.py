@@ -18,7 +18,7 @@ link_list = [a['href'] for a in soup.find_all('a', href=True)]
 
 counter=0
 
-for pn in xrange(106,109):
+for pn in xrange(1,2):
 	
 	if len(link_list)<286:
 		break		
@@ -33,7 +33,7 @@ for pn in xrange(106,109):
 	#print(len(link_list))
 	# app = requests.get(link_list[70])
 
-	for x in xrange(71,166):
+	for x in xrange(71,75):
 		counter=counter+1
 		print(counter)
 		details = BeautifulSoup(requests.get(link_list[x]).content, 'html.parser')
@@ -42,6 +42,12 @@ for pn in xrange(106,109):
 		sheet1.write(counter, 0, title)
 		sheet1.write(counter, 1, link_list[x])
 		properties= details.find_all('dd')
+
+		website = [a['href'] for a in details.find_all('a', href=True)]
+		try:		
+			sheet1.write(counter, 15, website[20])
+		except Exception as e:
+			print("Couldnt Get the website")
 
 		try:		
 			image = details.find_all('source')[0]
@@ -106,4 +112,4 @@ for pn in xrange(106,109):
 # for x in xrange(0,8):
 # 	sheet1.write(1, x+3, properties[x].get_text().strip()) 
 # 	pass
-wb.save('appe.xls') 
+wb.save('epl.xls') 
