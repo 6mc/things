@@ -17,17 +17,19 @@ soup = BeautifulSoup(page.content, 'html.parser')
 link_list = [a['href'] for a in soup.find_all('a', href=True)]
 
 # print(link_list[70])
-
+print(len(link_list))
 # app = requests.get(link_list[70])
 
-for x in xrange(70,90):
+for x in xrange(70,72):
 	print(x)
 	details = BeautifulSoup(requests.get(link_list[x]).content, 'html.parser')
 	title = details.find('title').get_text()[:-16] 
 	title = title[1:]
 	sheet1.write(x-69, 0, title)
 	sheet1.write(x-69, 1, link_list[x])
-	properties= details.find_all('dd');
+	properties= details.find_all('dd')
+	image = details.find_all('source')[2]
+	sheet1.write(x-69, 14, image['srcset'].split(" ")[0])
 	try:		
 		sheet1.write(x-69, 2, details.find_all('figcaption')[0].get_text().strip())
 	except Exception as e:
@@ -87,4 +89,4 @@ for x in xrange(70,90):
 # for x in xrange(0,8):
 # 	sheet1.write(1, x+3, properties[x].get_text().strip()) 
 # 	pass
-wb.save('app.xls') 
+wb.save('appe.xls') 
