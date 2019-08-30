@@ -19,7 +19,7 @@ link_list = [a['href'] for a in soup.find_all('a', href=True)]
 
 counter=0
 
-for pn in xrange(1,15):
+for pn in xrange(1,5):
 
 	
 	page = requests.get("https://apps.apple.com/tr/genre/ios-games/id6014?letter=A&page=" + str(pn) +"#page")
@@ -40,7 +40,8 @@ for pn in xrange(1,15):
 		try:
 			release = BeautifulSoup(requests.get("https://www.apptrace.com/app/"+link_list[x].split("id")[1]).content, 'html.parser')
 			date =  release.findAll("p", {"class": "info"})
-			print(date[0].get_text())
+			# print(date[0].get_text())
+			sheet1.write(counter, 16, date[0].get_text())
 		except Exception as e:
 			print("Couldnt get release Date")
 		try:
