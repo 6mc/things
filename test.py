@@ -7,8 +7,9 @@ wb = Workbook()
   
 # add_sheet is used to create sheet. 
 sheet1 = wb.add_sheet('Sheet 1') 
-  
-#sheet1.write(1, 0, 'ISBT DEHRADUN') 
+
+
+
 
 page = requests.get("https://apps.apple.com/tr/genre/ios-games/id6014?letter=A&page=1#page")
 
@@ -18,10 +19,8 @@ link_list = [a['href'] for a in soup.find_all('a', href=True)]
 
 counter=0
 
-for pn in xrange(1,2):
-	
-	if len(link_list)<286:
-		break		
+for pn in xrange(1,15):
+
 	
 	page = requests.get("https://apps.apple.com/tr/genre/ios-games/id6014?letter=A&page=" + str(pn) +"#page")
 
@@ -37,9 +36,20 @@ for pn in xrange(1,2):
 		counter=counter+1
 		print(counter)
 		details = BeautifulSoup(requests.get(link_list[x]).content, 'html.parser')
-		title = details.find('title').get_text()[:-16] 
-		title = title[1:]
-		sheet1.write(counter, 0, title)
+
+		try:
+			release = BeautifulSoup(requests.get("https://www.apptrace.com/app/"+link_list[x].split("id")[1]).content, 'html.parser')
+			date =  release.findAll("p", {"class": "info"})
+			print(date[0].get_text())
+		except Exception as e:
+			print("Couldnt get release Date")
+		try:
+			title = details.find('title').get_text()[:-16] 
+			title = title[1:]
+			sheet1.write(counter, 0, title)
+		except Exception as e:
+			print("titleless page wwtf ? did we get banned")
+
 		sheet1.write(counter, 1, link_list[x])
 		properties= details.find_all('dd')
 
