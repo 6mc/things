@@ -1,0 +1,24 @@
+.logo {
+  width: 75px;
+  float: left;
+  margin-right: 15px;
+}
+
+.form-group {
+  max-width: 500px;
+}
+
+.container{
+	margin-top: 5%;
+	border-style: solid;
+	border-color: #3b3b3b;
+	border-radius: 10px;
+}
+
+.actions {
+  padding: 10px 0;
+}
+
+.glyphicon-euro {
+  font-size: 12px;
+}
