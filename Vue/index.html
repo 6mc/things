@@ -64,6 +64,8 @@
       </tr>
       </tbody>
     </table>
+
+
   </div>
 </template>
 
@@ -73,20 +75,12 @@
     <form v-on:submit="createorder">
       <div class="form-group">
         <label for="add-user">User</label>
-<!--       <select class="form-control" id="add-user" v-model="order.user" required/>
-      </select> -->
 
-    <select class="form-control">
-    <option v-for="(key, status) in statuses">
-     {{ status }}
-</option>
-  </select>
-
-
+<h1 v-for="order in orders">sss<p>{{order.user}}</p></h1>
 
       <select  class="form-control" id="add-user" >
-  <option v-for="user in orders" v-bind:value="user.id" >
-    {{ user.user }}
+  <option v-for="user in users" v-bind:value="user.id" >
+    {{ user.name }}
   </option>
 </select>
         

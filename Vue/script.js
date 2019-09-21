@@ -4,10 +4,6 @@ var users = [
   {id: 3, name: 'Ayse', adress: "Talinn"}
   ];
 
-var statuses =  [
-    { key: 'admin', text: 'Admin' },
-    { key: 'super-admin', text: 'Super Admin' }
-];
 var products = [
   {id: 1, name: 'Coca Cola', price: 100}
   ];
@@ -86,7 +82,7 @@ var orderDelete = Vue.extend({
 var Addorder = Vue.extend({
   template: '#add-order',
   data: function () {
-    return {order: {user: '', product: '', quantity: ''}}
+    return {order: {user: '', product: '', quantity: ''},users: users}
   },
   methods: {
     createorder: function() {
