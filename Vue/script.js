@@ -32,6 +32,12 @@ function findorderKey (orderId) {
 
 var List = Vue.extend({
   template: '#order-list',
+    methods: {
+      remove (index) {
+      orders.splice(findorderKey(index), 1);
+       // this.$delete(this.todos, index)
+      }
+    },
   data: function () {
     return {orders: orders, searchKey: ''};
   },
@@ -114,6 +120,15 @@ var router = new VueRouter({routes:[
   { path: '/order/:order_id/delete', component: orderDelete, user: 'order-delete'}
 ]});
 app = new Vue({
+ 
+ todos:orders,
+    methods: {
+      remove (index) {
+         this.todos.splice(index, 1)
+       // this.$delete(this.todos, index)
+      }
+    },
+
 
   router:router
 }).$mount('#app')

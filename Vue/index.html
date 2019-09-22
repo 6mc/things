@@ -60,7 +60,7 @@
         <td>
           <router-link class="btn btn-warning btn-xs" v-bind:to="{user: 'order-edit', params: {order_id: order.id}}">Edit</router-link>
     <!--       <router-link class="btn btn-danger btn-xs" v-bind:to="{user: 'order-delete', params: {order_id: order.id}}">Delete</router-link> -->
-        <button class="btn btn-danger btn-xs" @click="console.log('sa');" >Delete</button>
+        <button class="btn btn-danger btn-xs" @click="remove(order.id)" >Delete</button>
         </td>
       </tr>
       </tbody>
