@@ -20,6 +20,8 @@ function findorder (orderId) {
   return orders[findorderKey(orderId)];
 };
 
+
+
 function findorderKey (orderId) {
   for (var key = 0; key < orders.length; key++) {
     if (orders[key].id == orderId) {
@@ -36,7 +38,7 @@ var List = Vue.extend({
   computed: {
     filteredorders: function () {
       return this.orders.filter(function (order) {
-        return this.searchKey=='' || order.user.indexOf(this.searchKey) !== -1;
+        return this.searchKey=='' || order.user.toLowerCase().indexOf(this.searchKey.toLowerCase()) !== -1 || order.product.toLowerCase().indexOf(this.searchKey.toLowerCase()) !== -1;
       },this);
     }
   }
@@ -68,15 +70,18 @@ var orderEdit = Vue.extend({
   }
 });
 
+
+
 var orderDelete = Vue.extend({
   template: '#order-delete',
   data: function () {
-    return {order: findorder(this.$route.params.order_id)};
+    return {order: orders[1]}//findorder(this.$route.params.order_id)};
   },
   methods: {
     deleteorder: function () {
-      orders.splice(findorderKey(this.$route.params.order_id), 1);
-      router.push('/');
+   //   orders.splice(findorderKey(this.$route.params.order_id), 1);
+     // router.push('/');
+    console.log("gere");
     }
   }
 });

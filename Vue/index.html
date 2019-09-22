@@ -59,7 +59,8 @@
         <td>{{ order.date }}</td>
         <td>
           <router-link class="btn btn-warning btn-xs" v-bind:to="{user: 'order-edit', params: {order_id: order.id}}">Edit</router-link>
-          <router-link class="btn btn-danger btn-xs" v-bind:to="{user: 'order-delete', params: {order_id: order.id}}">Delete</router-link>
+    <!--       <router-link class="btn btn-danger btn-xs" v-bind:to="{user: 'order-delete', params: {order_id: order.id}}">Delete</router-link> -->
+        <button class="btn btn-danger btn-xs" @click="console.log('sa');" >Delete</button>
         </td>
       </tr>
       </tbody>
@@ -139,12 +140,13 @@
 
 <template id="order-delete">
   <div>
-    <h2>Delete order {{ order.user }}</h2>
+  <!--   <h2>Delete order {{ order.user }}</h2>
     <form v-on:submit="deleteorder">
       <p>The action cannot be undone.</p>
       <button type="submit" class="btn btn-danger">Delete</button>
       <router-link class="btn btn-default" v-bind:to="'/'">Cancel</router-link>
-    </form>
+    </form> -->
+
   </div>
 </template>
 
