@@ -35,7 +35,6 @@ var List = Vue.extend({
     methods: {
       remove (index) {
       orders.splice(findorderKey(index), 1);
-       // this.$delete(this.todos, index)
       }
     },
   data: function () {
@@ -78,19 +77,19 @@ var orderEdit = Vue.extend({
 
 
 
-var orderDelete = Vue.extend({
-  template: '#order-delete',
-  data: function () {
-    return {order: orders[1]}//findorder(this.$route.params.order_id)};
-  },
-  methods: {
-    deleteorder: function () {
-   //   orders.splice(findorderKey(this.$route.params.order_id), 1);
-     // router.push('/');
-    console.log("gere");
-    }
-  }
-});
+// var orderDelete = Vue.extend({
+//   template: '#order-delete',
+//   data: function () {
+//     return {order: orders[1]}//findorder(this.$route.params.order_id)};
+//   },
+//   methods: {
+//     deleteorder: function () {
+//    //   orders.splice(findorderKey(this.$route.params.order_id), 1);
+//      // router.push('/');
+//     console.log("gere");
+//     }
+//   }
+// });
 
 var Addorder = Vue.extend({
   template: '#add-order',
@@ -112,23 +111,36 @@ var Addorder = Vue.extend({
   }
 });
 
+var editOrder = Vue.extend({
+  template: '#add-order',
+  data: function () {
+    return {order: {user: '', product: '', quantity: ''},users: users, products:products}
+  },
+  methods: {
+    createorder: function() {
+      var order = this.order;
+      orders.push({
+        id: Math.random().toString().split('.')[1],
+        user: order.user,
+        product: order.product,
+        quantity: order.quantity
+        // Ajax Response will be the total price and price and date
+      });
+      router.push('/');
+    }
+  }
+});
+
+
+
 var router = new VueRouter({routes:[
   { path: '/', component: List},
   { path: '/order/:order_id', component: order, user: 'order'},
   { path: '/add-order', component: Addorder},
-  { path: '/order/:order_id/edit', component: orderEdit, user: 'order-edit'},
-  { path: '/order/:order_id/delete', component: orderDelete, user: 'order-delete'}
+  { path: '/order/:order_id/edit', component: orderEdit, name: 'order-edit'}
+//  { path: '/order/:order_id/delete', component: orderDelete, user: 'order-delete'}
 ]});
 app = new Vue({
  
- todos:orders,
-    methods: {
-      remove (index) {
-         this.todos.splice(index, 1)
-       // this.$delete(this.todos, index)
-      }
-    },
-
-
   router:router
 }).$mount('#app')

@@ -57,9 +57,10 @@
         <td>{{ order.total }}
         <span class="glyphicon glyphicon-euro" aria-hidden="true"></span></td>
         <td>{{ order.date }}</td>
+
         <td>
-          <router-link class="btn btn-warning btn-xs" v-bind:to="{user: 'order-edit', params: {order_id: order.id}}">Edit</router-link>
-    <!--       <router-link class="btn btn-danger btn-xs" v-bind:to="{user: 'order-delete', params: {order_id: order.id}}">Delete</router-link> -->
+          <!-- <router-link class="btn btn-warning btn-xs" v-bind:to="{path: '/order/:order_id/edit', user: 'order-edit', params: {order_id: order.id}, props: true}">Edit</router-link> -->
+          <router-link class="btn btn-warning btn-xs" v-bind:to="{name: 'order-edit', params: {order_id: order.id}}">Edit</router-link>
         <button class="btn btn-danger btn-xs" @click="remove(order.id)" >Delete</button>
         </td>
       </tr>
@@ -129,8 +130,8 @@
         <textarea class="form-control" id="edit-product" rows="3" v-model="order.product"></textarea>
       </div>
       <div class="form-group">
-        <label for="edit-price">Price, <span class="glyphicon glyphicon-euro"></span></label>
-        <input type="number" class="form-control" id="edit-price" v-model="order.price"/>
+        <label for="edit-quantity">Quantity</span></label>
+        <input type="number" class="form-control" id="edit-quantity" v-model="order.quantity"/>
       </div>
       <button type="submit" class="btn btn-primary">Save</button>
       <router-link class="btn btn-default" v-bind:to="'/'">Cancel</router-link>
