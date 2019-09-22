@@ -59,7 +59,7 @@ var order = Vue.extend({
 var orderEdit = Vue.extend({
   template: '#order-edit',
   data: function () {
-    return {order: findorder(this.$route.params.order_id)};
+    return {orders: orders, users: users, products: products, order: findorder(this.$route.params.order_id)};
   },
   methods: {
     updateorder: function () {
@@ -77,41 +77,8 @@ var orderEdit = Vue.extend({
 
 
 
-// var orderDelete = Vue.extend({
-//   template: '#order-delete',
-//   data: function () {
-//     return {order: orders[1]}//findorder(this.$route.params.order_id)};
-//   },
-//   methods: {
-//     deleteorder: function () {
-//    //   orders.splice(findorderKey(this.$route.params.order_id), 1);
-//      // router.push('/');
-//     console.log("gere");
-//     }
-//   }
-// });
 
 var Addorder = Vue.extend({
-  template: '#add-order',
-  data: function () {
-    return {order: {user: '', product: '', quantity: ''},users: users, products:products}
-  },
-  methods: {
-    createorder: function() {
-      var order = this.order;
-      orders.push({
-        id: Math.random().toString().split('.')[1],
-        user: order.user,
-        product: order.product,
-        quantity: order.quantity
-        // Ajax Response will be the total price and price and date
-      });
-      router.push('/');
-    }
-  }
-});
-
-var editOrder = Vue.extend({
   template: '#add-order',
   data: function () {
     return {order: {user: '', product: '', quantity: ''},users: users, products:products}
