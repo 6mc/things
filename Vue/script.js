@@ -5,7 +5,9 @@ var users = [
   ];
 
 var products = [
-  {id: 1, name: 'Coca Cola', price: 100}
+  {id: 1, name: 'Coca Cola', price: 100},
+  {id: 2, name: 'Pepsi Cola', price: 100}
+  
   ];
 
 var orders = [
@@ -58,8 +60,8 @@ var orderEdit = Vue.extend({
       orders[findorderKey(order.id)] = {
         id: order.id,
         user: order.user,
-        description: order.description,
-        price: order.price
+        product: order.product,
+        quantity: order.quantity
       };
       router.push('/');
     }
@@ -82,7 +84,7 @@ var orderDelete = Vue.extend({
 var Addorder = Vue.extend({
   template: '#add-order',
   data: function () {
-    return {order: {user: '', product: '', quantity: ''},users: users}
+    return {order: {user: '', product: '', quantity: ''},users: users, products:products}
   },
   methods: {
     createorder: function() {
