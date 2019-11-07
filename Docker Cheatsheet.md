@@ -22,3 +22,15 @@ docker-compose exec workspace bash
 # Multiple Projects on Laradock
 
 https://github.com/laradock/laradock/issues/977#issuecomment-304161181
+
+#if not found, make sure that ur in right repository
+
+# Docker on Windows 10 “driver failed programming external connectivity on endpoint”
+
+1) Close "Docker Desktop"
+
+2) Run the commands below:
+
+net stop com.docker.service
+net start com.docker.service
+3) Launch "Docker Desktop" again
