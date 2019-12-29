@@ -1,4 +1,4 @@
-﻿# Static Website yontemler
+# Static Website yontemler
 
   
 
@@ -22,3 +22,4 @@
 - freelancer
 - company
 -  photo to html generator (or freelancer)
+- desktop app dreamweawer
