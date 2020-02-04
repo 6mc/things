@@ -5,6 +5,7 @@
  - [x] Kendin Kodla
 
  - Static Website Generators(Jekyll Hugo vs)
+ - Free CMS 
 
 -  [x] Wordpress free
 
