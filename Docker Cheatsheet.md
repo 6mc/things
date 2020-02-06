@@ -18,6 +18,13 @@ docker restart laradock_nginx_1
 
 docker-compose exec workspace bash
 
+- Docker see all images and containers
+
+docker ps
+
+- Docker create mew shared folder between host and docker 
+
+docker run -dit -P --name boxom -v ~/Desktop/paxable-api:/data paxable-api_php
 
 # Multiple Projects on Laradock
 
