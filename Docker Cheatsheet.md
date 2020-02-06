@@ -16,7 +16,7 @@
 
 - Docker ssh to workspace
 
-```docker-compose exec workspace bash```
+```docker-compose exec workspace bash``` or ```docker exec -it boxom /bin/bash```
 
 - Docker see all images and containers
 
