@@ -4,27 +4,35 @@
 
 - To run Laradock(after cloning from github)
 
-docker-compose up -d nginx mysql phpmyadmin redis workspace
+```docker-compose up -d nginx mysql phpmyadmin redis workspace```
 
 - List All containers
 
-docker container ls --all
+```docker container ls --all```
 
 - Docker Restart a container
 
-docker restart laradock_nginx_1
+```docker restart laradock_nginx_1```
 
 - Docker ssh to workspace
 
-docker-compose exec workspace bash
+```docker-compose exec workspace bash```
 
 - Docker see all images and containers
 
-docker ps
+```docker ps```
 
 - Docker create mew shared folder between host and docker 
 
-docker run -dit -P --name boxom -v ~/Desktop/paxable-api:/data paxable-api_php
+```docker run -dit -P --name boxom -v ~/Desktop/paxable-api:/data paxable-api_php```
+
+- Docker start a container 
+
+```docker container start "container_name"```
+
+- Docker Stop a container 
+
+```docker stop ubuntu-test```
 
 # Multiple Projects on Laradock
 
