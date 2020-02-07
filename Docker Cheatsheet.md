@@ -34,6 +34,11 @@
 
 ```docker stop ubuntu-test```
 
+- Docker run a pulled Image
+
+```docker run -P -v ~/Desktop/paxable-api:/app webdevops/php-nginx```
+
+
 # Multiple Projects on Laradock
 
 https://github.com/laradock/laradock/issues/977#issuecomment-304161181
