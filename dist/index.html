@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #bcaaa0;" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Parallax Depth Cards</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:500.700'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+    <div class="filter columns is-centered">
+        
+        <input id="field" type="text" class="column is-2 input is-large">
+        
+        <button type="button" class="title" onclick="search(this)">Ara</button>
+              <button class="title button" style="opacity: 0;" data-filter="">Chair</button>
+    <div class="button-group">
+    
+  <button class="title button" data-filter="*">Tümünü Seç</button>
+         <button class="title button" data-filter=".chair">Chair</button>
+         <button class="title button" data-filter=".beach">Beach</button>
+ <button id="srcbutton" class="title button" style="opacity: 0;" data-filter="">Chair</button>
+</div>
+        </div>
+        <div id="app" class="container" >
+  
+
+  <card class="item chair" data-image="http://to-sun.eu/wp-content/uploads/2017/12/product-10.jpg">
+    <h1 slot="header">Cushions</h1>
+    <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+  </card>
+  <card class="item chair" data-image="http://to-sun.eu/wp-content/uploads/2017/12/product-3.jpg">
+    <h1 slot="header">Lounge Sets</h1>
+    <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+  </card>
+  <card class="item silk" data-image="http://to-sun.eu/wp-content/uploads/2017/12/product-11.jpg">
+    <h1 slot="header">Gardens</h1>
+    <p slot="content">Beach Chairs</p>
+  </card>
+  <card class="item beach" data-image="http://to-sun.eu/wp-content/uploads/2017/12/product-9.jpg">
+    <h1 slot="header">Desk Chairs</h1>
+    <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+  </card>
+             <card class="item beach" data-image="http://to-sun.eu/wp-content/uploads/2017/12/product-9.jpg">
+    <h1 slot="header">Desk Chairs</h1>
+    <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+  </card>
+</div>
+<!-- partial -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js'></script><script  src="./script.js"></script>
+<script>
+    
+    function search(btn)
+    {
+    
+    var text =     btn.previousElementSibling.value;
+        console.log(text);
+        document.getElementById("srcbutton").setAttribute("data-filter","."+text);
+        document.getElementById("srcbutton").click();
+     //   btn.nextElementSibling.click();
+    //    btn.nextElementSibling.addClass="is-checked"
+   //document.getElementsByClassName("title")[4].click()
+        //$grid.isotope();
+    }
+    
+    
+    var $grid = $('.container').isotope({
+  itemSelector: '.item',
+  layoutMode: 'fitRows'
+});
+
+var filterFns = {
+
+  ium: function() {
+    var name = $(this).find('.item').className;
+    return name.match( new RegExp( $quicksearch.val(), 'gi' ) );
+  }
+};    
+    
+$('.button-group').on( 'click', 'button', function() {
+  var filterValue = $( this ).attr('data-filter');
+  // use filterFn if matches value
+  filterValue = filterFns[ filterValue ] || filterValue;
+  $grid.isotope({ filter: filterValue });
+});
+// change is-checked class on buttons
+$('.button-group').each( function( i, buttonGroup ) {
+  var $buttonGroup = $( buttonGroup );
+  $buttonGroup.on( 'click', 'button', function() {
+    $buttonGroup.find('.is-checked').removeClass('is-checked');
+    $( this ).addClass('is-checked');
+  });
+});
+
+    </script>
+</body>
+</html>
