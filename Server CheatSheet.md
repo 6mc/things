@@ -38,12 +38,15 @@ dns-nameservers 192.168.0.3
 # Ubuntu Firewall
 - sudo netstat -ntlp | grep LISTEN => see Open Ports
 - [Check Open Ports Firewall](https://www.yougetsignal.com/tools/open-ports/) 
+
 ## UFW Configuration
 - sudo ufw allow 80/tcp
 - sudo ufw deny 3306
 - sudo ufw allow from 192.168.0.1 to any port 22
 - sudo ufw enable
 
+# Nginx SSL cert for reverse proxies
+- certbot --nginx -d example.com
 
 # General OS manipulation
 - cat = peek into a text file
@@ -55,6 +58,9 @@ dns-nameservers 192.168.0.3
 - ps = show running processes
 - kill = helps killing a process
 - sed = replaces a word in a file 
+
+# Git
+- fetch remote branch to new local branch = git checkout --track -b daves_branch origin/daves_branch
 
 # Log Listing
 - root@tekstil:/var/log/nginx# cat access.log
