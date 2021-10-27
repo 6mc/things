@@ -54,3 +54,20 @@ https://github.com/laradock/laradock/issues/977#issuecomment-304161181
 net stop com.docker.service
 net start com.docker.service
 3) Launch "Docker Desktop" again
+# General Ubuntu Image
+```yaml
+version: '3'
+
+services:
+  ubuntu:
+    image: Dockerfile
+    tty: true
+    volumes:
+        - .:/home/
+    ports:
+        - "1000-1100:1000-1100"
+    entrypoint:
+        - /bin/bash
+
+```
+
